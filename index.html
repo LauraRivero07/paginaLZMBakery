@@ -1,23 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página de Laura</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LZM Bakery</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+
   <header>
-    <h1>Bienvenido a la Página de Laura</h1>
+    <div class="logo">
+      <img src="logo.png" alt="LZM Bakery Logo">
+      <h1>LZM BAKERY</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#historia">Historia</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#trabajo">Nuestro trabajo</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <p>Este es un sitio web de prueba hecho por Kevin Ayola.</p>
-    <button onclick="alert('¡Gracias por visitar!')">Haz clic aquí</button>
-  </main>
+  <section id="inicio" class="seccion seccion-inicio">
+    <h2>Website<br><span>LZM BAKERY</span></h2>
+    <div class="circulos">
+      <div class="c1"></div>
+      <div class="c2"></div>
+      <div class="c3"></div>
+    </div>
+  </section>
+
+  <section id="historia" class="seccion">
+    <h2>Nuestra historia</h2>
+    <p>LZM Bakery nace del deseo de una madre emprendedora de convertir su pasión en un negocio con propósito...</p>
+  </section>
+
+  <section id="servicios" class="seccion">
+    <h2>Servicios</h2>
+    <div class="servicios-grid">
+      <div class="bloque">
+        <h3>Eventos</h3>
+        <p>Pedidos personalizados para celebraciones familiares, cumpleaños, reuniones empresariales.</p>
+      </div>
+      <div class="bloque">
+        <h3>Repostería tradicional</h3>
+        <p>Tortas, cupcakes, alfajores elaborados con ingredientes frescos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="trabajo" class="seccion">
+    <h2>Nuestro trabajo</h2>
+    <div class="galeria">
+      <img src="img1.jpg" alt="cupcakes">
+      <img src="img2.jpg" alt="torta decorada">
+      <img src="img3.jpg" alt="postre">
+    </div>
+  </section>
+
+  <section id="testimonios" class="seccion">
+    <h2>Testimonios</h2>
+    <div class="testimonios-grid">
+      <blockquote>“Los alfajores son deliciosos...”<br><cite>- Adrián Angulo</cite></blockquote>
+      <blockquote>“El frosting de los cupcakes es el mejor...”<br><cite>- Alice Velastegui</cite></blockquote>
+    </div>
+  </section>
+
+  <section id="contacto" class="seccion">
+    <h2>¿Cómo contactarnos?</h2>
+    <p>📞 +57 305 325 8453<br>📧 luzmcampo@gmail.com<br>🌐 www.lzmbakery.com</p>
+  </section>
 
   <footer>
-    <p>&copy; 2025 Kevin Ayola</p>
+    <p>© 2025 LZM Bakery. Con amor y dulzura.</p>
   </footer>
+
 </body>
 </html>
