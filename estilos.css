@@ -30,6 +30,11 @@ header {
   gap: 10px;
 }
 
+.logo img {
+  max-width: 120px;
+  height: auto;
+}
+
 .logo h1 {
   color: var(--fucsia);
   margin: 0;
@@ -146,3 +151,4 @@ footer {
   padding: 1rem;
   text-align: center;
 }
+
