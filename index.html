@@ -25,12 +25,14 @@
 </header>
 
 <section id="inicio" class="slider-section">
-<div class="slider-container">
-    <img src="inicio1.png" class="slide active" alt="Producto destacado 1">
-    <img src="inicio2.png" class="slide" alt="Producto destacado 2">
-    <!-- Puedes agregar más imágenes -->
-</div>
+  <div class="slider-container">
+    <div class="slide active" style="background-image: url('inicio1.png');"></div>
+    <div class="slide" style="background-image: url('inicio2.png');"></div>
+  </div>
+  <button class="slider-btn prev"><</button>
+  <button class="slider-btn next">></button>
 </section>
+
 
 <section id="historia" class="historia-section">
 <div class="historia-contenido">
@@ -53,12 +55,12 @@
 <h2 class="titulo-servicios">¿Qué ofrecemos?</h2>
 <div class="servicios-flex">
     <div class="servicio-caja">
-    <img src="eventos.jpg" alt="Eventos" class="servicio-icono">
+    <img src="eventos.png" alt="Eventos" class="servicio-icono">
     <h3>Eventos Especiales</h3>
     <p>Pedidos personalizados para cumpleaños, reuniones y fechas especiales.</p>
     </div>
     <div class="servicio-caja">
-    <img src="tradicional.jpg" alt="Repostería Tradicional" class="servicio-icono">
+    <img src="tradicional.png" alt="Repostería Tradicional" class="servicio-icono">
     <h3>Repostería Tradicional</h3>
     <p>Tortas, cupcakes y alfajores elaborados con amor y los mejores ingredientes.</p>
     </div>
@@ -71,18 +73,18 @@
 <h2 class="lleva-hoy-title">LLEVA HOY</h2>
 <div class="lleva-hoy-grid">
     <div class="producto">
-    <img src="promo1.jpg" alt="Promo Donuts">
-    <p class="producto-titulo">Lleva 4 Donuts Premium<br><span class="precio">$$$</span></p>
+    <img src="promo1.png" alt="Lleva 6 cupcake Premium">
+    <p class="producto-titulo">Lleva 6 cupcake Premium<br><span class="precio">$$$</span></p>
     </div>
 
     <div class="producto">
-    <img src="promo2.jpg" alt="Promo Vasos y Donuts">
-    <p class="producto-titulo">8 Donuts + Agua Manantial<br><span class="precio">$$$</span></p>
+    <img src="promo2.png" alt="Mini torta + 6 Cupcake">
+    <p class="producto-titulo">Mini torta + 6 Cupcake<br><span class="precio">$$$</span></p>
     </div>
 
     <div class="producto">
-    <img src="promo3.jpg" alt="Promo Torta">
-    <p class="producto-titulo">Mini torta + Cupcake<br><span class="precio">$$$</span></p>
+    <img src="promo3.png" alt="Torta de dos pisos">
+    <p class="producto-titulo">Torta de dos pisos<br><span class="precio">$$$</span></p>
     </div>
 </div>
 </section>
@@ -102,7 +104,7 @@
 <div class="testimonios-grid">
     
     <div class="testimonio">
-    <img src="cliente1.jpg" alt="Cliente 1">
+    <img src="usuario.png" alt="Cliente 1">
     <div class="burbuja">
         <p>“LA DEDICACIÓN A LA HORA DE REALIZAR LOS ALFAJORES ES IMPRESIONANTE, LOGRA OBTENER UNA MEZCLA SUAVE Y CRUJIENTE A LA VEZ, BRINDANDO UNA EXPERIENCIA DEGUSTATIVA INTERESANTE”</p>
     </div>
@@ -110,7 +112,7 @@
     </div>
 
     <div class="testimonio">
-    <img src="cliente2.jpg" alt="Cliente 2">
+    <img src="usuario.png" alt="Cliente 2">
     <div class="burbuja">
         <p>“LOS ALFAJORES DE LZM BAKERY REALMENTE SON DELICIOSOS, SE SIENTE LA FRESCURA DEL PRODUCTO AL PROBARLOS”</p>
     </div>
@@ -118,7 +120,7 @@
     </div>
 
     <div class="testimonio">
-    <img src="cliente3.jpg" alt="Cliente 3">
+    <img src="usuario.png" alt="Cliente 3">
     <div class="burbuja">
         <p>“EL FROSTING DE ESTOS CUPCAKES, ES EL MEJOR QUE HE PROBADO EN MUCHO TIEMPO, DEFINITIVAMENTE, NECESITO SEGUIR PROBANDO ESTA GRAN CREMA”</p>
     </div>
@@ -143,13 +145,50 @@
 
 <script>
 const slides = document.querySelectorAll('.slide');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
 let current = 0;
+let slideInterval;
 
-setInterval(() => {
-    slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-  }, 4000); // Cambia cada 4 segundos
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    if (i === index) slide.classList.add('active');
+  });
+}
+
+function nextSlide() {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+}
+
+function prevSlide() {
+  current = (current - 1 + slides.length) % slides.length;
+  showSlide(current);
+}
+
+nextBtn.addEventListener('click', () => {
+  nextSlide();
+  resetInterval();
+});
+
+prevBtn.addEventListener('click', () => {
+  prevSlide();
+  resetInterval();
+});
+
+// Auto-slide
+function startSlideShow() {
+  slideInterval = setInterval(nextSlide, 4000);
+}
+
+function resetInterval() {
+  clearInterval(slideInterval);
+  startSlideShow();
+}
+
+startSlideShow();
 </script>
+
 
 </html>
